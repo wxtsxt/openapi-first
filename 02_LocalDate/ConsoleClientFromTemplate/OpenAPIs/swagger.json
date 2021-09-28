@@ -1,0 +1,172 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "openapi_first",
+    "version": "v1"
+  },
+  "paths": {
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Era": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CalendarSystem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "minYear": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "maxYear": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "eras": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Era"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IsoDayOfWeek": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "LocalDate": {
+        "type": "object",
+        "properties": {
+          "calendar": {
+            "$ref": "#/components/schemas/CalendarSystem"
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "month": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "day": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "dayOfWeek": {
+            "$ref": "#/components/schemas/IsoDayOfWeek"
+          },
+          "yearOfEra": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "era": {
+            "$ref": "#/components/schemas/Era"
+          },
+          "dayOfYear": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "$ref": "#/components/schemas/LocalDate"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
