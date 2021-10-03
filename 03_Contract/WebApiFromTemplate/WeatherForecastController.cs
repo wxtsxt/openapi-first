@@ -33,7 +33,7 @@ namespace WebApiFromTemplate
 
                     return new WeatherForecast
                     {
-                        Date = new LocalDate(now.Year, now.Month, now.Day),
+                        Date = DateTime.Now.AddDays(index),
                         TemperatureC = rng.Next(-20, 55),
                         Summary = Summaries[rng.Next(Summaries.Length)]
                     };
