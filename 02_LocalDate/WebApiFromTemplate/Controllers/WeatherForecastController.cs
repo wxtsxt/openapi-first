@@ -40,5 +40,11 @@ namespace WebApiFromTemplate.Controllers
                 })
             .ToArray();
         }
+
+        [HttpPost]
+        public WeatherForecast Post(WeatherForecast weatherForecast)
+        {
+            return weatherForecast;
+        }
     }
 }

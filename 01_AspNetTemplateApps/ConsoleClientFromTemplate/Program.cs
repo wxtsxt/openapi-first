@@ -11,13 +11,14 @@ namespace ConsoleClientFromTemplate
         static async Task Main()
         {
             var httpClient = new HttpClient();
-            var client = new swaggerClient("https://localhost:5001/", httpClient);
-            var results = (await client.WeatherForecastAsync());
-            var firstForecast = results.First();
-            Console.WriteLine(JsonSerializer.Serialize(firstForecast, new JsonSerializerOptions()
+            var client = new swaggerClient("https://localhost:5011/", httpClient);
+            //var results = (await client.WeatherForecastAsync());
+            await client.WeatherForecastAsync(new WeatherForecast
             {
-                WriteIndented = true
-            }));
+                Date = new DateTimeOffset(2020, 1, 1, 0, 0, 0, TimeSpan.Zero),
+                Summary = "cold",
+                TemperatureC = 0
+            });
         }
     }
 }

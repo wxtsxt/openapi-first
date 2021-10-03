@@ -1,0 +1,273 @@
+openapi: 3.0.3
+info:
+  title: Yield Maintenance Service
+  description: 'Yield Maintenance Prepayment Calculator Service [netcore-host][net5] [See code in git](https://git.chathamfinancial.com/GlobalRealEstate/Calculators/Chatham.Services.YieldMaintenance)<br>Currently it is a REST wrapper around [Prepayment Service](https://git.chathamfinancial.com/GlobalRealEstate/Calculators/Chatham.Services.Prepayment) which is an old SOAP WCF web service'
+  version: '1.0'
+tags:
+  - name: Estimates
+    description: Yield Maintenance prepayment estimates for existing loan transactions
+paths:
+  /yield-maintenance/api/estimates/common-scenario:
+    post:
+      operationId: CalculateMultipleWithSchedule
+      tags:
+        - Estimates
+      security:
+        - bearer: []
+        - client-exposed: []
+      summary: Calculates common scenario yield maintenance estimate
+      description: |-
+        Provide all information about a loan for yield maintenance to be calculated. All data including the schedule has to be provided.
+        TransactionId is used only for information purposes and is not required.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PrepaymentScheduleInput'
+      responses:
+        '200':
+          description: |-
+            Success. The result contains value for 2 different ways the value may be calculated
+             - Full Interest in result.repaymentEstimates.fullInterestEstimate.amount
+             - Accrued Interest in result.repaymentEstimates.accruedInterestEstimate.amount. See [docs]()
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PrepaymentResult'
+        '404':
+          description: Not Found
+          content:
+            application/problem+json:
+              schema:
+                $ref: 'contract-problem-details.openapi.json#/Problem'
+        default:
+          description: Internal server error
+          content:
+            application/problem+json:
+              schema:
+                $ref: 'contract-problem-details.openapi.json#/Problem'
+components:
+  schemas:
+    PrepaymentScheduleInput:
+      description: Prepayment settings for calculation
+      type: object
+      properties:
+        prepaymentDate:
+          type: string
+          format: date
+          example: '2020-11-30'
+          description: The date of the prepayment
+        asOfDate:
+          type: string
+          format: date
+          default: '2012-01-01'
+          example: '2020-09-30'
+          description: Rates as of date to be used.
+        treasuryShift:
+          type: number
+          format: decimal
+          example: '0.0000'
+          description: Treasury shift value to be added to treasury rate calculated.
+        decompounding:
+          type: boolean
+          example: 'false'
+        minimumPenaltyPercent:
+          type: number
+          format: decimal
+          example: '0.0100'
+        principalCurrency:
+          type: string
+          nullable: true
+          default: USD
+          example: USD
+        shockList:
+          type: array
+          items:
+            type: number
+            format: decimal
+          description: 'You will get a separate estimate for every shock value. When null, zero shock value will be used.'
+          nullable: true
+        trade:
+          $ref: '#/components/schemas/PrepaymentScheduleTrade'
+      example:
+        prepaymentDate: '2019-11-30'
+        asOfDate: '2019-12-30'
+        treasuryShift: 0
+        decompounding: false
+        minimumPenaltyPercent: 0.01
+        principalCurrency: USD
+        shockList:
+          - 0
+        trade:
+          maturityDate: '2020-04-01'
+          structuredToEndDate: '2020-02-01'
+          dayCountConvention: Act/360
+          transactionId: 3554054
+          schedule:
+            - paymentDate: '2020-02-01'
+              startDate: '2020-01-01'
+              endDate: '2020-02-01'
+              beginningPrincipalBalance: 46910000
+              principalPaymentAmount: 0
+              interestPaymentAmount: 233423.21
+    PrepaymentScheduleTrade:
+      title: Trade
+      description: Transaction data of the loan
+      type: object
+      properties:
+        maturityDate:
+          type: string
+          format: date
+          description: 'Always pass trade maturity date here. If the trade''s YM is structured to other end date, use structuredToEndDate'
+          example: '2021-04-01'
+        structuredToEndDate:
+          type: string
+          format: date
+          example: '2021-02-01'
+          description: 'The trade''s YM available up to the end date before maturity date. This is optional (although recommended), maturity date is used if empty.'
+          nullable: true
+        dayCountConvention:
+          type: string
+          description: 'TODO: Should it be moved to calculations settings (one level up)? Is it part of transaction definition or calculation settings'
+          example: Act/360
+        transactionId:
+          type: integer
+          format: int32
+          example: '3554054'
+          description: Transaction Id of the loan for which estimate is calculated.
+        schedule:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrepaymentScheduleItem'
+          description: Trade's full schedule. The service will use the part of the schedule needed to calculate YM
+    PrepaymentScheduleItem:
+      type: object
+      properties:
+        paymentDate:
+          type: string
+          format: date
+          example: '2021-02-01'
+        startDate:
+          type: string
+          format: date
+          example: '2021-01-01'
+        endDate:
+          type: string
+          format: date
+          example: '2021-02-01'
+        beginningPrincipalBalance:
+          type: number
+          format: decimal
+          example: '46910000.00'
+        principalPaymentAmount:
+          type: number
+          format: decimal
+          example: '0.00'
+          description: The principal of the schedule payment.
+        interestPaymentAmount:
+          type: number
+          format: decimal
+          example: '233423.21'
+          description: The interest part of the schedule payment.
+    PrepaymentResult:
+      type: object
+      description: The response
+      properties:
+        prepaymentDate:
+          type: string
+          format: date
+          example: '2020-11-30'
+          description: The date of the prepayment (from request)
+        ratesAsOfDate:
+          type: string
+          format: date
+          example: '2020-09-30'
+          description: Rates as of date (from request)
+        treasuryRate:
+          type: number
+          format: decimal
+          example: '0.000809836065573771'
+          description: Treasury rate used for calculations.
+        transactionId:
+          type: integer
+          format: int32
+          example: '3554054'
+          description: Transaction Id of the loan for which estimate is calculated.
+        result:
+          $ref: '#/components/schemas/PrepaymentEstimateResult'
+    PrepaymentEstimateResult:
+      type: object
+      description: The prepayment values calculated. See prepaymentEstimates for yield maintenance estimates
+      properties:
+        currency:
+          type: string
+          example: USD
+        principalAtPrepayment:
+          type: number
+          format: decimal
+          example: '46910000.00'
+        minimumPenaltyAmount:
+          type: number
+          format: decimal
+          example: '68124.49'
+        prepaymentEstimates:
+          type: array
+          description: List of estimates for every shock value from the request.
+          items:
+            $ref: '#/components/schemas/PrepaymentShockEstimatesResult'
+        timeOfCalculation:
+          type: string
+          format: date-time
+          example: '2020-09-30T20:00:00Z'
+    PrepaymentShockEstimatesResult:
+      type: object
+      description: 'Estimate values for a shock value. There are 2 estimates calculated: full interest and accrued interest estimate. See field description for formulas used for each.'
+      properties:
+        shock:
+          type: number
+          format: decimal
+          example: '0'
+          description: Shock value to be used (from request)
+        pvOfPayments:
+          type: number
+          format: decimal
+          example: '47353346.711358600342387455446'
+          description: Present Value of payments between the prepayment date and the final date. Final date is maturity date or 'structured to' date
+        penalty:
+          type: number
+          format: decimal
+          example: '43346.754'
+          description: 'Yield Maintenance: prepayment penalty calculated, this may be less then minimum penalty. Minimum penalty will be used in such case. Formula: pvOfPayments - principalAtPrepayment'
+        fullInterestEstimate:
+          type: object
+          properties:
+            amount:
+              type: number
+              format: decimal
+              description: 'Formula: principalAtPrepayment + prepaymentPenalty + fullInterest. Full interest is: next `interest` payment unless the prepayment date is exactly on the payment date then `interest + principal` payment'
+              example: '223423.21'
+        accruedInterestEstimate:
+          type: object
+          properties:
+            amount:
+              type: number
+              format: decimal
+              description: |
+                'Formula: principalAtPrepayment + prepaymentPenalty + accruedInterest'. 
+                TODO: describe where accruedInterest is taken from.
+              example: '221215.21'
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'Authorization: Bearer <token>. Put your token only here.'
+    client-exposed:
+      type: apiKey
+      description: 'Put ''Bearer '' + a valid token here, e.g. ''Bearer some-valid-token'''
+      name: Authorization
+      in: header
