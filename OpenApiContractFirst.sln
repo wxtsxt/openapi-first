@@ -24,15 +24,18 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "03_Contract\WebApiFromTemplate\WebApi.csproj", "{9DF86216-18E4-4CEF-89F8-8E8B922170A5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_ContractEnriched", "04_ContractEnriched", "{C679DA83-2BE1-446D-B36D-D1828E29A00F}"
-	ProjectSection(SolutionItems) = preProject
-		04_ContractEnriched\OpenAPIs\contract-first-swagger.yaml = 04_ContractEnriched\OpenAPIs\contract-first-swagger.yaml
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClient", "03_Contract\ConsoleClientFromTemplate\ConsoleClient.csproj", "{DEFF254B-D465-48F8-8437-C9B8DCAB4B33}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiEnriched", "04_ContractEnriched\WebApiEnriched\WebApiEnriched.csproj", "{AE8EE5C2-57D5-4252-A4B1-646C2EC8C730}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClientEnriched", "04_ContractEnriched\ConsoleClientEnriched\ConsoleClientEnriched.csproj", "{611760B2-3093-4D21-86DE-27273969290D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05_ManualContract", "05_ManualContract", "{EF76576C-A2A1-440C-8B72-D984B1FC7415}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClient", "05_ManualContract\ConsoleClient\ConsoleClient.csproj", "{11300854-7E8B-4B3D-9C05-DFC7305CCAF0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "05_ManualContract\WebApi\WebApi.csproj", "{A574EF60-DFAF-41F7-B9DA-F5CFA6A21081}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +75,14 @@ Global
 		{611760B2-3093-4D21-86DE-27273969290D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{611760B2-3093-4D21-86DE-27273969290D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{611760B2-3093-4D21-86DE-27273969290D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11300854-7E8B-4B3D-9C05-DFC7305CCAF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11300854-7E8B-4B3D-9C05-DFC7305CCAF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11300854-7E8B-4B3D-9C05-DFC7305CCAF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11300854-7E8B-4B3D-9C05-DFC7305CCAF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A574EF60-DFAF-41F7-B9DA-F5CFA6A21081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A574EF60-DFAF-41F7-B9DA-F5CFA6A21081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A574EF60-DFAF-41F7-B9DA-F5CFA6A21081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A574EF60-DFAF-41F7-B9DA-F5CFA6A21081}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +96,8 @@ Global
 		{DEFF254B-D465-48F8-8437-C9B8DCAB4B33} = {C672E6EB-B6A0-4C76-8522-E73639A4E1EF}
 		{AE8EE5C2-57D5-4252-A4B1-646C2EC8C730} = {C679DA83-2BE1-446D-B36D-D1828E29A00F}
 		{611760B2-3093-4D21-86DE-27273969290D} = {C679DA83-2BE1-446D-B36D-D1828E29A00F}
+		{11300854-7E8B-4B3D-9C05-DFC7305CCAF0} = {EF76576C-A2A1-440C-8B72-D984B1FC7415}
+		{A574EF60-DFAF-41F7-B9DA-F5CFA6A21081} = {EF76576C-A2A1-440C-8B72-D984B1FC7415}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {37B95703-13F1-4A80-A017-6BC1396F8D71}

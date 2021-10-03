@@ -1,0 +1,65 @@
+openapi: 3.0.1
+info:
+  title: openapi_first
+  version: v1
+paths:
+  /WeatherForecast:
+    get:
+      tags:
+        - WeatherForecast
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeatherForecast'
+        default:
+          description: Internal server error
+          content:
+            application/problem+json:
+              schema:
+                $ref: contract-problem-details.openapi.json#/Problem
+    post:
+      tags:
+        - WeatherForecast
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WeatherForecast'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeatherForecast'
+        default:
+          description: Internal server error
+          content:
+            application/problem+json:
+              schema:
+                $ref: contract-problem-details.openapi.json#/Problem
+components:
+  schemas:
+    WeatherForecast:
+      type: object
+      properties:
+        dateOf:
+          type: string
+          format: date
+          nullable: false
+        temperatureC:
+          type: integer
+          format: int32
+        temperatureF:
+          type: integer
+          format: int32
+          readOnly: true
+        summary:
+          type: string
+          nullable: true
+      additionalProperties: false
