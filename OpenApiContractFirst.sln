@@ -32,10 +32,20 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClientEnriched", "04_ContractEnriched\ConsoleClientEnriched\ConsoleClientEnriched.csproj", "{611760B2-3093-4D21-86DE-27273969290D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05_ManualContract", "05_ManualContract", "{EF76576C-A2A1-440C-8B72-D984B1FC7415}"
+	ProjectSection(SolutionItems) = preProject
+		05_ManualContract\OpenAPIs\contract-first-swagger.yaml = 05_ManualContract\OpenAPIs\contract-first-swagger.yaml
+		05_ManualContract\OpenAPIs\contract-problem-details.openapi.json = 05_ManualContract\OpenAPIs\contract-problem-details.openapi.json
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClient", "05_ManualContract\ConsoleClient\ConsoleClient.csproj", "{11300854-7E8B-4B3D-9C05-DFC7305CCAF0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "05_ManualContract\WebApi\WebApi.csproj", "{A574EF60-DFAF-41F7-B9DA-F5CFA6A21081}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi contract files", "WebApi contract files", "{0CCB839E-9E77-4B8E-97A9-8B7993B7A771}"
+	ProjectSection(SolutionItems) = preProject
+		05_ManualContract\OpenAPIs\contract-first-swagger.yaml = 05_ManualContract\OpenAPIs\contract-first-swagger.yaml
+		05_ManualContract\OpenAPIs\contract-problem-details.openapi.json = 05_ManualContract\OpenAPIs\contract-problem-details.openapi.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,6 +108,7 @@ Global
 		{611760B2-3093-4D21-86DE-27273969290D} = {C679DA83-2BE1-446D-B36D-D1828E29A00F}
 		{11300854-7E8B-4B3D-9C05-DFC7305CCAF0} = {EF76576C-A2A1-440C-8B72-D984B1FC7415}
 		{A574EF60-DFAF-41F7-B9DA-F5CFA6A21081} = {EF76576C-A2A1-440C-8B72-D984B1FC7415}
+		{0CCB839E-9E77-4B8E-97A9-8B7993B7A771} = {EF76576C-A2A1-440C-8B72-D984B1FC7415}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {37B95703-13F1-4A80-A017-6BC1396F8D71}
