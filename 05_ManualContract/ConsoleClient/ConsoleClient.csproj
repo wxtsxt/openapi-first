@@ -6,8 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <OpenApiReference Include="OpenAPIs\swagger.yaml" CodeGenerator="NSwagCSharp" Link="OpenAPIs\swagger.yaml" Options="/DateType:NodaTime.LocalDate /GenerateOptionalPropertiesAsNullable:true /GenerateNullableReferenceTypes:true" Namespace="WebApiFromTemplate" AdditionalNamespaceUsages="NodaTime">
+    <OpenApiReference Include="OpenAPIs\swagger.yaml" CodeGenerator="NSwagCSharp"  Link="OpenAPIs\swagger.yaml" Options="/DateType:NodaTime.LocalDate /GenerateOptionalPropertiesAsNullable:true /GenerateNullableReferenceTypes:true" Namespace="WebApiFromTemplate" AdditionalNamespaceUsages="NodaTime">
       <AdditionalNamespaceUsages>NodaTime</AdditionalNamespaceUsages>
+      <SourceUri>https://localhost:5051/swagger/v1/swagger.yaml</SourceUri>
     </OpenApiReference>
   </ItemGroup>
 
