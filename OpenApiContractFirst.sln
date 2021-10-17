@@ -48,6 +48,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02b_LocalDate", "02b_LocalDate", "{BA1747FD-638C-4699-8353-8B2A4A3DED4C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiFromTemplate", "02b_LocalDate_MicroElements.Swashbuckle.NodaTime\WebApiFromTemplate\WebApiFromTemplate.csproj", "{1BA7B8FB-9918-4BF8-81A3-4987E8D475E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClientFromTemplate", "02b_LocalDate_MicroElements.Swashbuckle.NodaTime\ConsoleClientFromTemplate\ConsoleClientFromTemplate.csproj", "{0D6B2720-C87F-4229-9995-CDED09828177}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +100,14 @@ Global
 		{A574EF60-DFAF-41F7-B9DA-F5CFA6A21081}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A574EF60-DFAF-41F7-B9DA-F5CFA6A21081}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A574EF60-DFAF-41F7-B9DA-F5CFA6A21081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BA7B8FB-9918-4BF8-81A3-4987E8D475E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BA7B8FB-9918-4BF8-81A3-4987E8D475E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BA7B8FB-9918-4BF8-81A3-4987E8D475E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BA7B8FB-9918-4BF8-81A3-4987E8D475E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D6B2720-C87F-4229-9995-CDED09828177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D6B2720-C87F-4229-9995-CDED09828177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D6B2720-C87F-4229-9995-CDED09828177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D6B2720-C87F-4229-9995-CDED09828177}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +124,8 @@ Global
 		{11300854-7E8B-4B3D-9C05-DFC7305CCAF0} = {EF76576C-A2A1-440C-8B72-D984B1FC7415}
 		{A574EF60-DFAF-41F7-B9DA-F5CFA6A21081} = {EF76576C-A2A1-440C-8B72-D984B1FC7415}
 		{0CCB839E-9E77-4B8E-97A9-8B7993B7A771} = {EF76576C-A2A1-440C-8B72-D984B1FC7415}
+		{1BA7B8FB-9918-4BF8-81A3-4987E8D475E1} = {BA1747FD-638C-4699-8353-8B2A4A3DED4C}
+		{0D6B2720-C87F-4229-9995-CDED09828177} = {BA1747FD-638C-4699-8353-8B2A4A3DED4C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {37B95703-13F1-4A80-A017-6BC1396F8D71}
