@@ -19,6 +19,7 @@ namespace ConsoleClientEnriched
                 TemperatureC = 0
             });
             Console.WriteLine(response.DateOf);
+            Console.ReadLine();
         }
     }
 }

@@ -17,6 +17,8 @@ namespace ConsoleClientFromTemplate
                 Summary = "cold",
                 TemperatureC = 0
             });
+
+            Console.ReadLine();
         }
     }
 }

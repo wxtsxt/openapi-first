@@ -20,6 +20,7 @@ namespace ConsoleClient
                 TemperatureC = 0
             });
             Console.WriteLine(response.DateOf);
+            Console.ReadLine();
         }
     }
 }

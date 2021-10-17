@@ -27,15 +27,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_ContractEnriched", "04_C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClient", "03_Contract\ConsoleClientFromTemplate\ConsoleClient.csproj", "{DEFF254B-D465-48F8-8437-C9B8DCAB4B33}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiEnriched", "04_ContractEnriched\WebApiEnriched\WebApiEnriched.csproj", "{AE8EE5C2-57D5-4252-A4B1-646C2EC8C730}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "04_ContractEnriched\WebApiEnriched\WebApi.csproj", "{AE8EE5C2-57D5-4252-A4B1-646C2EC8C730}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClientEnriched", "04_ContractEnriched\ConsoleClientEnriched\ConsoleClientEnriched.csproj", "{611760B2-3093-4D21-86DE-27273969290D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClient", "04_ContractEnriched\ConsoleClientEnriched\ConsoleClient.csproj", "{611760B2-3093-4D21-86DE-27273969290D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05_ManualContract", "05_ManualContract", "{EF76576C-A2A1-440C-8B72-D984B1FC7415}"
-	ProjectSection(SolutionItems) = preProject
-		05_ManualContract\OpenAPIs\contract-first-swagger.yaml = 05_ManualContract\OpenAPIs\contract-first-swagger.yaml
-		05_ManualContract\OpenAPIs\contract-problem-details.openapi.json = 05_ManualContract\OpenAPIs\contract-problem-details.openapi.json
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClient", "05_ManualContract\ConsoleClient\ConsoleClient.csproj", "{11300854-7E8B-4B3D-9C05-DFC7305CCAF0}"
 EndProject
@@ -45,6 +41,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi contract files", "We
 	ProjectSection(SolutionItems) = preProject
 		05_ManualContract\OpenAPIs\contract-first-swagger.yaml = 05_ManualContract\OpenAPIs\contract-first-swagger.yaml
 		05_ManualContract\OpenAPIs\contract-problem-details.openapi.json = 05_ManualContract\OpenAPIs\contract-problem-details.openapi.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{436EA130-7A92-4AB1-BD20-5600401452E9}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
