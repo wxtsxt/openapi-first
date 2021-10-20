@@ -20,3 +20,8 @@ Create OpenAPI yaml files and generate contract C# files
       <SourceUri>https://localhost:5051/swagger/v1/swagger.yaml</SourceUri>
 </OpenApiReference>
 ```
+
+#tools
+- Visual Studio code OpenAPI editor https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi
+- Visual Studio Code REST client https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+- editor.swagger.io

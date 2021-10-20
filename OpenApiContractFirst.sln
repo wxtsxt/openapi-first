@@ -54,6 +54,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiFromTemplate", "02b_L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClientFromTemplate", "02b_LocalDate_MicroElements.Swashbuckle.NodaTime\ConsoleClientFromTemplate\ConsoleClientFromTemplate.csproj", "{0D6B2720-C87F-4229-9995-CDED09828177}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenApis", "OpenApis", "{0D071AA8-222F-4945-B352-36078726A7ED}"
+	ProjectSection(SolutionItems) = preProject
+		04_ContractEnriched\OpenAPIs\contract-first-swagger.yaml = 04_ContractEnriched\OpenAPIs\contract-first-swagger.yaml
+		04_ContractEnriched\OpenAPIs\contract-problem-details.openapi.json = 04_ContractEnriched\OpenAPIs\contract-problem-details.openapi.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenApis", "OpenApis", "{03E84913-471E-48D1-BEE3-70EFE12956AA}"
+	ProjectSection(SolutionItems) = preProject
+		03_Contract\OpenAPIs\contract-first-swagger.json = 03_Contract\OpenAPIs\contract-first-swagger.json
+		03_Contract\OpenAPIs\contract-problem-details.openapi.json = 03_Contract\OpenAPIs\contract-problem-details.openapi.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -126,6 +138,8 @@ Global
 		{0CCB839E-9E77-4B8E-97A9-8B7993B7A771} = {EF76576C-A2A1-440C-8B72-D984B1FC7415}
 		{1BA7B8FB-9918-4BF8-81A3-4987E8D475E1} = {BA1747FD-638C-4699-8353-8B2A4A3DED4C}
 		{0D6B2720-C87F-4229-9995-CDED09828177} = {BA1747FD-638C-4699-8353-8B2A4A3DED4C}
+		{0D071AA8-222F-4945-B352-36078726A7ED} = {C679DA83-2BE1-446D-B36D-D1828E29A00F}
+		{03E84913-471E-48D1-BEE3-70EFE12956AA} = {C672E6EB-B6A0-4C76-8522-E73639A4E1EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {37B95703-13F1-4A80-A017-6BC1396F8D71}
