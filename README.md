@@ -21,6 +21,10 @@ Create OpenAPI yaml files and generate contract C# files
 </OpenApiReference>
 ```
 
+OpenAPI data types
+ - json schema https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-7.3
+ - extra types https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#data-types
+
 #tools
 - Visual Studio code OpenAPI editor https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi
 - Visual Studio Code REST client https://marketplace.visualstudio.com/items?itemName=humao.rest-client
