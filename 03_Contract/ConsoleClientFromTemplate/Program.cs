@@ -10,14 +10,15 @@ namespace ConsoleClientFromTemplate
         {
             var httpClient = new HttpClient();
             var client = new swaggerClient("https://localhost:5031/", httpClient);
-            //var results = (await client.WeatherForecastAsync());
-            await client.WeatherForecastAsync(new WeatherForecast
+
+            var response = await client.WeatherForecastAsync(new WeatherForecast
             {
                 Date = new DateTimeOffset(2020, 1, 1, 0, 0, 0, TimeSpan.Zero),
                 Summary = "cold",
                 TemperatureC = 0
             });
 
+            Console.WriteLine(response.Date);
             Console.ReadLine();
         }
     }

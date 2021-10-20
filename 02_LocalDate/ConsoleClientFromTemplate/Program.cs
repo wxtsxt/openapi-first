@@ -14,14 +14,15 @@ namespace ConsoleClientFromTemplate
         {
             var httpClient = new HttpClient();
             var client = new swaggerClient("https://localhost:5021/", httpClient);
-            //var results = (await client.WeatherForecastAsync());
-            await client.WeatherForecastAsync(new WeatherForecast
+
+            var response = await client.WeatherForecastAsync(new WeatherForecast
             {
                 Date = new LocalDate {Year = 2020, Month = 5, Day = 3},
                 Summary = "cold",
                 TemperatureC = 0
             });
 
+            Console.WriteLine(response.Date);
             Console.ReadLine();
         }
     }
